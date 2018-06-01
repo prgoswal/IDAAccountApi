@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC0DFD9A-300D-4429-9F9D-96842DE9D71A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GstAccountApi</RootNamespace>
+    <AssemblyName>GstAccountApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BudgetAmountTranscationController.cs" />
+    <Compile Include="Controllers\ChequeSeriesController.cs" />
+    <Compile Include="Controllers\FixedDepositController.cs" />
+    <Compile Include="Controllers\NewYearActivationController.cs" />
+    <Compile Include="Controllers\OpeningBlcTransferController.cs" />
+    <Compile Include="Controllers\EWayBillController.cs" />
+    <Compile Include="Controllers\AccountHeadController.cs" />
+    <Compile Include="Controllers\AddGSTINController.cs" />
+    <Compile Include="Controllers\AdvancedSuppPaymentController.cs" />
+    <Compile Include="Controllers\AdvancedSuppReceivedController.cs" />
+    <Compile Include="Controllers\AdvanceLiabilityController.cs" />
+    <Compile Include="Controllers\AdvanceRefundController.cs" />
+    <Compile Include="Controllers\BankPaymentController.cs" />
+    <Compile Include="Controllers\BankReceiptController.cs" />
+    <Compile Include="Controllers\BranchMasterController.cs" />
+    <Compile Include="Controllers\BrsBankController.cs" />
+    <Compile Include="Controllers\BudgetUserRightsController.cs" />
+    <Compile Include="Controllers\NewBudgetAmountController.cs" />
+    <Compile Include="Controllers\BudgetYearActivationController.cs" />
+    <Compile Include="Controllers\BudgetAmountController.cs" />
+    <Compile Include="Controllers\BudgetSubSectionController.cs" />
+    <Compile Include="Controllers\CashPaymentController.cs" />
+    <Compile Include="Controllers\CashReceiptController.cs" />
+    <Compile Include="Controllers\CashSaleReturnController.cs" />
+    <Compile Include="Controllers\CashSalesController.cs" />
+    <Compile Include="Controllers\ClientCstinController.cs" />
+    <Compile Include="Controllers\CompositionCashSalesController.cs" />
+    <Compile Include="Controllers\CompositionPurchaseVoucherController.cs" />
+    <Compile Include="Controllers\CompositionSalesVoucharController.cs" />
+    <Compile Include="Controllers\BudgetSectionController.cs" />
+    <Compile Include="Controllers\OldBalanceEntryController.cs" />
+    <Compile Include="Controllers\OpeningBalanceController.cs" />
+    <Compile Include="Controllers\PendingVouchersController.cs" />
+    <Compile Include="Controllers\RPTPendingTransactionController.cs" />
+    <Compile Include="Controllers\SectionSubSectionController.cs" />
+    <Compile Include="Controllers\CostCentreController.cs" />
+    <Compile Include="Controllers\CreditNoteVoucherController.cs" />
+    <Compile Include="Controllers\DebitNoteVoucherController.cs" />
+    <Compile Include="Controllers\DemoRegistrationController.cs" />
+    <Compile Include="Controllers\DuplicateInvoiceController.cs" />
+    <Compile Include="Controllers\ExcelImportController.cs" />
+    <Compile Include="Controllers\FrmSearchByAmtDateController.cs" />
+    <Compile Include="Controllers\GroupTypeMasterController.cs" />
+    <Compile Include="Controllers\GSTINDetailsController.cs" />
+    <Compile Include="Controllers\GSTINSubmitController.cs" />
+    <Compile Include="Controllers\GSTR1EntryController.cs" />
+    <Compile Include="Controllers\Gstr3BController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HSNSACController.cs" />
+    <Compile Include="Controllers\InterBranchController.cs" />
+    <Compile Include="Controllers\ItemGroupController.cs" />
+    <Compile Include="Controllers\ItemMasterController.cs" />
+    <Compile Include="Controllers\ItemOpenStockController.cs" />
+    <Compile Include="Controllers\JournalVoucherController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Controllers\MultiInvoiceController.cs" />
+    <Compile Include="Controllers\NarrationMasterController.cs" />
+    <Compile Include="Controllers\OfflineSalesVoucherController.cs" />
+    <Compile Include="Controllers\OfflineSeriesController.cs" />
+    <Compile Include="Controllers\OfflineUtilityController.cs" />
+    <Compile Include="Controllers\OpenBrsDiffEntryController.cs" />
+    <Compile Include="Controllers\ProfileCreationController.cs" />
+    <Compile Include="Controllers\PurchaseReturnController.cs" />
+    <Compile Include="Controllers\PurchaseVoucherController.cs" />
+    <Compile Include="Controllers\RCMLiabilityController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SalesReturnController.cs" />
+    <Compile Include="Controllers\SalesVaucharController.cs" />
+    <Compile Include="Controllers\StockTransferController.cs" />
+    <Compile Include="Controllers\SundriController.cs" />
+    <Compile Include="Controllers\TransporterController.cs" />
+    <Compile Include="Controllers\UpdateAccountHeadController.cs" />
+    <Compile Include="Controllers\UpdateBankPaymentController.cs" />
+    <Compile Include="Controllers\UpdateBankReceiptController.cs" />
+    <Compile Include="Controllers\UpdateCashPaymentController.cs" />
+    <Compile Include="Controllers\UpdateCashReceiptController.cs" />
+    <Compile Include="Controllers\UpdateCashSalesController.cs" />
+    <Compile Include="Controllers\UpdateCompositionCashSalesController.cs" />
+    <Compile Include="Controllers\UpdateCompositionPurchaseVoucherController.cs" />
+    <Compile Include="Controllers\UpdateCompositionSalesVoucherController.cs" />
+    <Compile Include="Controllers\UpdateGroupTypeMasterController.cs" />
+    <Compile Include="Controllers\UpdateInterBranchController.cs" />
+    <Compile Include="Controllers\UpdateItemMasterController.cs" />
+    <Compile Include="Controllers\UpdateJournalVoucherController.cs" />
+    <Compile Include="Controllers\UpdateNarrationController.cs" />
+    <Compile Include="Controllers\UpdateProfileCreationController.cs" />
+    <Compile Include="Controllers\UpdatePurchaseReturnVoucherController.cs" />
+    <Compile Include="Controllers\UpdatePurchaseVoucherController.cs" />
+    <Compile Include="Controllers\UpdateSalesReturnController.cs" />
+    <Compile Include="Controllers\UpdateSalesVoucherController.cs" />
+    <Compile Include="Controllers\UpdateStockTransferController.cs" />
+    <Compile Include="Controllers\UpdateSupplierAdvancePaymentController.cs" />
+    <Compile Include="Controllers\UpdateSupplierAdvReceivedController.cs" />
+    <Compile Include="Controllers\UpdateWarehouseController.cs" />
+    <Compile Include="Controllers\UpdCreditNotVoucherController.cs" />
+    <Compile Include="Controllers\UpdDebitNoteVoucherController.cs" />
+    <Compile Include="Controllers\UserRollController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VoucherPrintingController.cs" />
+    <Compile Include="Controllers\WarehouseController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommonCls.cs" />
+    <Compile Include="Models\ClsCon.cs" />
+    <Compile Include="Models\DL\BudgetAmountTranscationDataAccess.cs" />
+    <Compile Include="Models\DL\ChequeSeriesDataAccess.cs" />
+    <Compile Include="Models\DL\FixedDepositDataAccess.cs" />
+    <Compile Include="Models\DL\NewYearActivationDataAccess.cs" />
+    <Compile Include="Models\DL\OpeningBlcTransferDataAccess.cs" />
+    <Compile Include="Models\DL\EWayBillDataAccess.cs" />
+    <Compile Include="Models\DL\AccountHeadDataAccess.cs" />
+    <Compile Include="Models\DL\AddGSTINDataAccess.cs" />
+    <Compile Include="Models\DL\AdvancedSupppaymentDataAccess.cs" />
+    <Compile Include="Models\DL\AdvancedSuppReceivedDataAccess.cs" />
+    <Compile Include="Models\DL\AdvanceLiabilityDataAccess.cs" />
+    <Compile Include="Models\DL\AdvanceRefundDataAccess.cs" />
+    <Compile Include="Models\DL\BankPaymentDataAccess.cs" />
+    <Compile Include="Models\DL\BankReceiptDataAccess.cs" />
+    <Compile Include="Models\DL\BranchMasterDataAccess.cs" />
+    <Compile Include="Models\DL\BrsBankDataAccess.cs" />
+    <Compile Include="Models\DL\BudgetUserRightsDataAccess.cs" />
+    <Compile Include="Models\DL\NewBudgetAmountDataAccess.cs" />
+    <Compile Include="Models\DL\BudgetYearActivationDataAccess.cs" />
+    <Compile Include="Models\DL\BudgetAmountDataAccess.cs" />
+    <Compile Include="Models\DL\BudgetSubSectionDataAccess.cs" />
+    <Compile Include="Models\DL\CashPaymentDataAccess.cs" />
+    <Compile Include="Models\DL\CashReceiptDataAccess.cs" />
+    <Compile Include="Models\DL\CashSaleReturnDataAccess.cs" />
+    <Compile Include="Models\DL\CashSalesDataAccess.cs" />
+    <Compile Include="Models\DL\ClientGSTINDataAccess.cs" />
+    <Compile Include="Models\DL\CompositionCashSalesDataAccess.cs" />
+    <Compile Include="Models\DL\CompositionPurchaseDataAccess.cs" />
+    <Compile Include="Models\DL\CompositionSalesDataAccess.cs" />
+    <Compile Include="Models\DL\BudgetSectionDataAccess.cs" />
+    <Compile Include="Models\DL\OldBalanceDataAccess.cs" />
+    <Compile Include="Models\DL\OpningBalanceDataAccess.cs" />
+    <Compile Include="Models\DL\PendingVouchersDataAccess.cs" />
+    <Compile Include="Models\DL\RPTPendingTransactionDataAccess.cs" />
+    <Compile Include="Models\DL\SectionSubSectionDataAccess.cs" />
+    <Compile Include="Models\DL\CostCentreDataAccess.cs" />
+    <Compile Include="Models\DL\CreditNoteDataAccess.cs" />
+    <Compile Include="Models\DL\DebitNoteDataAccess.cs" />
+    <Compile Include="Models\DL\DemoRegistrationDataAccess.cs" />
+    <Compile Include="Models\DL\Dl_FrmSearchByAmtDate.cs" />
+    <Compile Include="Models\DL\Dl_MultiInvoice.cs" />
+    <Compile Include="Models\DL\DuplicateInvoiceDataAccess.cs" />
+    <Compile Include="Models\DL\ExcelImportDataAccess.cs" />
+    <Compile Include="Models\DL\GroupTypeMasterDataAcess.cs" />
+    <Compile Include="Models\DL\GSTINDetailsDataAccess.cs" />
+    <Compile Include="Models\DL\GstinSubmitDataAccess.cs" />
+    <Compile Include="Models\DL\Gstr1DataAccess.cs" />
+    <Compile Include="Models\DL\Gstr3bDataAccess.cs" />
+    <Compile Include="Models\DL\HSNSACDataAccess.cs" />
+    <Compile Include="Models\DL\InterBranchDataAccess.cs" />
+    <Compile Include="Models\DL\ItemGroupDataAccess.cs" />
+    <Compile Include="Models\DL\ItemMasterDataAccess.cs" />
+    <Compile Include="Models\DL\ItemOpenningStockDataAccess.cs" />
+    <Compile Include="Models\DL\JournalVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\LoginDataAccess.cs" />
+    <Compile Include="Models\DL\MasterDataAccess.cs" />
+    <Compile Include="Models\DL\NarrationMasterDataAccess.cs" />
+    <Compile Include="Models\DL\OfflineSalesVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\OfflineSeriesDataAccess.cs" />
+    <Compile Include="Models\DL\OfflineUtilityDataAccess.cs" />
+    <Compile Include="Models\DL\OpenBrsDiffDataAccess.cs" />
+    <Compile Include="Models\DL\ProfileCreationDataAccess.cs" />
+    <Compile Include="Models\DL\PurchaseDataAccess.cs" />
+    <Compile Include="Models\DL\PurchaseReturnDataAccess.cs" />
+    <Compile Include="Models\DL\RCMLiabilityDataAccess.cs" />
+    <Compile Include="Models\DL\ReportDataAccess.cs" />
+    <Compile Include="Models\DL\SalesDataAccess.cs" />
+    <Compile Include="Models\DL\SalesReturnDataAccess.cs" />
+    <Compile Include="Models\DL\StockTransferDataAccess.cs" />
+    <Compile Include="Models\DL\SundriesDataAccess.cs" />
+    <Compile Include="Models\DL\TransporterDetailsDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateAccountHeadDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateBankReceiptDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateCashReceiptDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateCashSalesDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateCompositionCashSalesDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateCompositionPurchaseVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateCompositionSalesVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateGroupTypeDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateInterBranchDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateItemMasterDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateJournalVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateNarrationMasterDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateProfileCreationDataAccess.cs" />
+    <Compile Include="Models\DL\UpdatePurchaseReturnVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\UpdatePurchaseVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateSalesReturnDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateSalesVoucherDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateStockTransferDataAccess.cs" />
+    <Compile Include="Models\DL\UpdateWarehouseDataAccess.cs" />
+    <Compile Include="Models\DL\UpdBankPaymentDataAccess.cs" />
+    <Compile Include="Models\DL\UpdCashPaymentDataAccess.cs" />
+    <Compile Include="Models\DL\UpdCreditNoteDataAccess.cs" />
+    <Compile Include="Models\DL\UpdDebitNoteDataAccess.cs" />
+    <Compile Include="Models\DL\UpdSuppAdvanceDataAccess.cs" />
+    <Compile Include="Models\DL\UpdSuppSuppAdvReceivedDataAccess.cs" />
+    <Compile Include="Models\DL\UserRollDataAccess.cs" />
+    <Compile Include="Models\DL\UserDataAccess.cs" />
+    <Compile Include="Models\DL\VoucherPrintingDataAccess.cs" />
+    <Compile Include="Models\DL\WarehouseDataAccess.cs" />
+    <Compile Include="Models\PL\AccountHeadModel.cs" />
+    <Compile Include="Models\PL\AddGSTINModel.cs" />
+    <Compile Include="Models\PL\AdvanceLiabilityModel.cs" />
+    <Compile Include="Models\PL\AdvanceRefundModel.cs" />
+    <Compile Include="Models\PL\AdvSuppPaymentModel.cs" />
+    <Compile Include="Models\PL\AdvSuppReceivedModel.cs" />
+    <Compile Include="Models\PL\BranchMasterModel.cs" />
+    <Compile Include="Models\PL\BrsBankModel.cs" />
+    <Compile Include="Models\PL\BudgetAmountTranscationModel.cs" />
+    <Compile Include="Models\PL\BudgetReportModel.cs" />
+    <Compile Include="Models\PL\BudgetUserRightsModel.cs" />
+    <Compile Include="Models\PL\ChequeSeriesModel.cs" />
+    <Compile Include="Models\PL\FixedDepositModel.cs" />
+    <Compile Include="Models\PL\NewBudgetAmountModel.cs" />
+    <Compile Include="Models\PL\BudgetYearActivationModel.cs" />
+    <Compile Include="Models\PL\BudgetAmountModel.cs" />
+    <Compile Include="Models\PL\BudgetSubSectionModel.cs" />
+    <Compile Include="Models\PL\CashSaleReturnModel.cs" />
+    <Compile Include="Models\PL\CashSalesModel.cs" />
+    <Compile Include="Models\PL\ClientGstinModel.cs" />
+    <Compile Include="Models\PL\CompositionCashSalesModel.cs" />
+    <Compile Include="Models\PL\CompositionPurchaseModel.cs" />
+    <Compile Include="Models\PL\CompositionSalesModel.cs" />
+    <Compile Include="Models\PL\BudgetSectionModel.cs" />
+    <Compile Include="Models\PL\NewYearActivationModel.cs" />
+    <Compile Include="Models\PL\OldBalanceModel.cs" />
+    <Compile Include="Models\PL\OpeningBalanceModel.cs" />
+    <Compile Include="Models\PL\OpeningBlcTransferModel.cs" />
+    <Compile Include="Models\PL\PendingVouchersModel.cs" />
+    <Compile Include="Models\PL\RPTPendingTransactionModel.cs" />
+    <Compile Include="Models\PL\SectionSubSectionModel.cs" />
+    <Compile Include="Models\PL\CostCentreModel.cs" />
+    <Compile Include="Models\PL\CreditNoteModel.cs" />
+    <Compile Include="Models\PL\DebitNoteModel.cs" />
+    <Compile Include="Models\PL\DemoRegistrationModel.cs" />
+    <Compile Include="Models\PL\DuplicateInvoiceModel.cs" />
+    <Compile Include="Models\PL\ExcelImportModel.cs" />
+    <Compile Include="Models\PL\GroupTypeMasterModel.cs" />
+    <Compile Include="Models\PL\GSTINDetailsModel.cs" />
+    <Compile Include="Models\PL\GstinSubmitModel.cs" />
+    <Compile Include="Models\PL\Gstr1EntryModel.cs" />
+    <Compile Include="Models\PL\Gstr3BModel.cs" />
+    <Compile Include="Models\PL\HSNSACModel.cs" />
+    <Compile Include="Models\PL\InterBranchModel.cs" />
+    <Compile Include="Models\PL\ItemList.cs" />
+    <Compile Include="Models\PL\BankPaymentModel.cs" />
+    <Compile Include="Models\PL\BankReceiptModel.cs" />
+    <Compile Include="Models\PL\CashPaymentModel.cs" />
+    <Compile Include="Models\PL\CashReceiptModel.cs" />
+    <Compile Include="Models\PL\FinancialYearModel.cs" />
+    <Compile Include="Models\PL\ItemGroupModel.cs" />
+    <Compile Include="Models\PL\ItemMasterModel.cs" />
+    <Compile Include="Models\PL\ItemOpenningStockModel.cs" />
+    <Compile Include="Models\PL\JournalVoucherModel.cs" />
+    <Compile Include="Models\PL\LoginModel.cs" />
+    <Compile Include="Models\PL\MasterModel.cs" />
+    <Compile Include="Models\PL\NarrationMasterModel.cs" />
+    <Compile Include="Models\PL\OfflineSalesVoucherModel.cs" />
+    <Compile Include="Models\PL\OfflineSeriesModel.cs" />
+    <Compile Include="Models\PL\OfflineUtilityModel.cs" />
+    <Compile Include="Models\PL\OpenBrsDiffModel.cs" />
+    <Compile Include="Models\PL\Pl_FrmSearchByAmtDate.cs" />
+    <Compile Include="Models\PL\PL_MultiInvoice.cs" />
+    <Compile Include="Models\PL\ProfileCreationModel.cs" />
+    <Compile Include="Models\PL\PurchaseModel.cs" />
+    <Compile Include="Models\PL\PurchaseReturnModel.cs" />
+    <Compile Include="Models\PL\RCMLiabilityModel.cs" />
+    <Compile Include="Models\PL\SalesModel.cs" />
+    <Compile Include="Models\PL\SalesReturnModel.cs" />
+    <Compile Include="Models\PL\StockTransferModel.cs" />
+    <Compile Include="Models\PL\SundriesModel.cs" />
+    <Compile Include="Models\PL\TransporterDetailModel.cs" />
+    <Compile Include="Models\PL\UpdateAccounHeadModel.cs" />
+    <Compile Include="Models\PL\UpdateAdvSuppReceivedModel.cs" />
+    <Compile Include="Models\PL\UpdateBankReceiptModel.cs" />
+    <Compile Include="Models\PL\UpdateCashReceiptModel.cs" />
+    <Compile Include="Models\PL\UpdateCashSalesModel.cs" />
+    <Compile Include="Models\PL\UpdateCompositionCashSalesModel.cs" />
+    <Compile Include="Models\PL\UpdateCompositionPurchaseVoucherModel.cs" />
+    <Compile Include="Models\PL\UpdateCompositionSalesModel.cs" />
+    <Compile Include="Models\PL\UpdateGroupMasterModel.cs" />
+    <Compile Include="Models\PL\UpdateInterBranchModel.cs" />
+    <Compile Include="Models\PL\UpdateItemMasterModel.cs" />
+    <Compile Include="Models\PL\UpdateJournalVoucherModel.cs" />
+    <Compile Include="Models\PL\UpdateNarrationModel.cs" />
+    <Compile Include="Models\PL\UpdateProfileCreationModel.cs" />
+    <Compile Include="Models\PL\UpdatePurchaseReturnVoucherModel.cs" />
+    <Compile Include="Models\PL\UpdatePurchaseVoucherModel.cs" />
+    <Compile Include="Models\PL\UpdateSalesModel.cs" />
+    <Compile Include="Models\PL\UpdateSalesReturnModel.cs" />
+    <Compile Include="Models\PL\UpdateStockTransferModel.cs" />
+    <Compile Include="Models\PL\UpdateWarehouseModel.cs" />
+    <Compile Include="Models\PL\UpdBankPaymentModel.cs" />
+    <Compile Include="Models\PL\UpdCashPaymentModel.cs" />
+    <Compile Include="Models\PL\UpdCreditNoteModel.cs" />
+    <Compile Include="Models\PL\UpdDebitNoteModel.cs" />
+    <Compile Include="Models\PL\UpdSuppAdvancePaymentModel.cs" />
+    <Compile Include="Models\PL\UserRollModel.cs" />
+    <Compile Include="Models\PL\UserModel.cs" />
+    <Compile Include="Models\PL\VoucherPrintingModel.cs" />
+    <Compile Include="Models\PL\WarehouseModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\IDAAccountAPI.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58800</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58800/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
