@@ -89,6 +89,46 @@ namespace GstAccountApi.Models.DL
             }
             return AdvSuppaydt;
         }
+         internal DataTable FillItemTaxRates(AdvSuppPaymentModel objAdvSupPayment)
+        {
+            try
+            {
+                ClsCon.cmd = new SqlCommand();
+                ClsCon.cmd.CommandType = CommandType.StoredProcedure;
+                ClsCon.cmd.CommandText = "SPItems";
+
+                ClsCon.cmd.CommandType = CommandType.StoredProcedure;
+                ClsCon.cmd.Parameters.AddWithValue("@Ind", objAdvSupPayment.Ind);
+                ClsCon.cmd.Parameters.AddWithValue("@OrgID", objAdvSupPayment.OrgID);
+                ClsCon.cmd.Parameters.AddWithValue("@BrID", objAdvSupPayment.BrID);
+                ClsCon.cmd.Parameters.AddWithValue("@PartyCode", objAdvSupPayment.AccountCode);
+                ClsCon.cmd.Parameters.AddWithValue("@ItemID", objAdvSupPayment.ItemID);
+
+                //ClsCon.cmd.Parameters.AddWithValue("@YrCD", objAdvSupPayment.YrCD);
+                //ClsCon.cmd.Parameters.AddWithValue("@GSTIN", objAdvSupPayment.GSTIN);
+
+                con = ClsCon.SqlConn();
+                ClsCon.cmd.Connection = con;
+                AdvSuppaydt = new DataTable();
+                ClsCon.da = new SqlDataAdapter(ClsCon.cmd);
+                ClsCon.da.Fill(AdvSuppaydt);
+                AdvSuppaydt.TableName = "success";
+            }
+            catch (Exception)
+            {
+                AdvSuppaydt = new DataTable();
+                AdvSuppaydt.TableName = "error";
+                return AdvSuppaydt;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+                ClsCon.da.Dispose();
+                ClsCon.cmd.Dispose();
+            }
+            return AdvSuppaydt;
+        }
 
         internal DataTable SavingAdvPay(AdvSuppPaymentModel objAdvSupPayment)
         {
