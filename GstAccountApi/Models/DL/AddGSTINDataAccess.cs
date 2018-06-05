@@ -46,7 +46,38 @@ namespace GstAccountApi.Models.DL
             }
             return dsAddGSTIN;
         }
+ internal DataSet LoadDatad(AddGSTINModel objAddGSTINModel)
+        {
+            try
+            {
+                ClsCon.cmd = new SqlCommand();
+                ClsCon.cmd.CommandType = CommandType.StoredProcedure;
+                ClsCon.cmd.CommandText = "SPAddGSTIN";
+                ClsCon.cmd.Parameters.AddWithValue("@Ind", objAddGSTINModel.Ind);
+                ClsCon.cmd.Parameters.AddWithValue("@OrgID", objAddGSTINModel.OrgID);
 
+                con = ClsCon.SqlConn();
+                ClsCon.cmd.Connection = con;
+                dsAddGSTIN = new DataSet();
+                ClsCon.da = new SqlDataAdapter(ClsCon.cmd);
+                ClsCon.da.Fill(dsAddGSTIN);
+                dsAddGSTIN.DataSetName = "success";
+            }
+            catch (Exception)
+            {
+                dsAddGSTIN = new DataSet();
+                dsAddGSTIN.DataSetName = "error";
+                return dsAddGSTIN;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+                ClsCon.da.Dispose();
+                ClsCon.cmd.Dispose();
+            }
+            return dsAddGSTIN;
+        }
         internal DataTable SaveGSTIN(AddGSTINModel objAddGSTINModel)
         {
             try
